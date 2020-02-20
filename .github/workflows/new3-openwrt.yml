@@ -15,7 +15,7 @@ on:
     branches:
       - master
     paths:
-      - '7621.config'
+      - '.config'
 #  schedule:
 #    - cron: 0 8 * * 5
   watch:
@@ -24,7 +24,7 @@ on:
 env:
   REPO_URL: https://github.com/openwrt/openwrt
   REPO_BRANCH: v18.06.7
-  CONFIG_FILE: 7621.config
+  CONFIG_FILE: .config
   DIY_SH: diy.sh
   FREE_UP_DISK: false
   SSH_ACTIONS: false
