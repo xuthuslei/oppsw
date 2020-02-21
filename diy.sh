@@ -16,7 +16,7 @@ sed -i 's/1024) + " <%:k/1048576) + " <%:M/g' feeds/luci/modules/luci-mod-admin-
 sed -i 's/(info.memory/Math.floor(info.memory/g' feeds/luci/modules/luci-mod-admin-full/luasrc/view/admin_status/index.htm
 sed -i 's/(Math.floor/Math.floor(/g' feeds/luci/modules/luci-mod-admin-full/luasrc/view/admin_status/index.htm
 sed -i 's/(info.swap/Math.floor(info.swap/g' feeds/luci/modules/luci-mod-admin-full/luasrc/view/admin_status/index.htm
-sed -i 's/luci-theme-bootstrap/luci-theme-argon-light-mod/g' feeds/luci/collections/luci/Makefile
+sed -i 's/luci-theme-bootstrap/luci-theme-argon-dark-mod/g' feeds/luci/collections/luci/Makefile
 sed -i 's/+kmod-nls-base @BUILD_PATENTED/+kmod-nls-base/g' feeds/packages/kernel/exfat-nofuse/Makefile
 sed -i 's/IMG_PREFIX:=$(VERSION_DIST_SANITIZED)/IMG_PREFIX:=R8.7-$(shell date +%F-%H)-$(VERSION_DIST_SANITIZED)/g' include/image.mk
 
@@ -77,6 +77,10 @@ svn checkout https://github.com/rosywrt/luci-theme-rosy/trunk/luci-theme-rosy pa
 #svn checkout https://github.com/maxlicheng/luci-app-unblockmusic/trunk package/lean/luci-app-unblockmusic
 svn checkout https://github.com/project-openwrt/luci-app-unblockneteasemusic/trunk package/lean/luci-app-unblockneteasemusic
 sed -i 's/解除网易云音乐播放限制/解锁网易云/g' package/lean/luci-app-unblockneteasemusic/luasrc/controller/unblockneteasemusic.lua
+svn checkout https://github.com/project-openwrt/luci-app-unblockneteasemusic-go/trunk package/lean/luci-app-unblockneteasemusic-go
+sed -i 's/解除网易云音乐播放限制/解锁网易云/g' package/lean/luci-app-unblockneteasemusic-go/luci-app-unblockneteasemusic-go/luasrc/controller/unblockneteasemusic-go.lua
+svn checkout https://github.com/project-openwrt/luci-app-unblockneteasemusic-mini/trunk package/lean/luci-app-unblockneteasemusic-mini
+sed -i 's/解除网易云音乐播放限制/解锁网易云/g' package/lean/luci-app-unblockneteasemusic-mini/luasrc/controller/unblockneteasemusic-mini.lua
 #svn checkout https://github.com/frainzy1477/clash/trunk package/lean/clash
 #svn checkout https://github.com/frainzy1477/luci-app-clash/trunk package/lean/luci-app-clash
 svn checkout https://github.com/vernesong/OpenClash/trunk package/lean/OpenClash
