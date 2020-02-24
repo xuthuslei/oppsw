@@ -6,7 +6,7 @@
 # Blog: https://p3terx.com
 #=================================================
 
-name: X86 OpenWrt
+name: X86 Openwrt
 
 on:
   release:
