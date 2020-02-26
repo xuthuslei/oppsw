@@ -55,6 +55,12 @@ jobs:
     - name: Clone source code
       run: git clone --depth 1 $REPO_URL -b $REPO_BRANCH openwrt
 
+    - name: Clone mknop code
+      run: git clone --depth 1 https://github.com/tuanqing/mknop -b master mknop
+     
+    - name: Clone N1wireless code
+      run: git clone --depth 1 https://github.com/maxlicheng/phicomm-n1-wireless -b master phicomm-n1-wireless
+
     - name: Update feeds
       run: cd openwrt && ./scripts/feeds update -a
 
@@ -101,14 +107,23 @@ jobs:
       id: organize
       if: env.UPLOAD_FIRMWARE == 'true' && !cancelled()
       run: |
-        rm -rf ./artifact/
-        mkdir -p ./artifact/
-        find openwrt/bin/targets/ -name "*combined*vmdk*" | xargs -i mv -f {} ./artifact/
-        find openwrt/bin/targets/ -name "*combined*img*" | xargs -i mv -f {} ./artifact/
-        find openwrt/bin/targets/ -name "*sysupgrade*bin*" | xargs -i mv -f {} ./artifact/
-        find openwrt/bin/targets/ -name "*rootfs*tar*gz*" | xargs -i mv -f {} ./artifact/
-        find openwrt/bin/targets/ -name "sha256sums" | xargs -i mv -f {} ./artifact/
-        find openwrt/bin/targets/ -name "config.seed" | xargs -i mv -f {} ./artifact/
+        rm -rf mknop/armbian/n1/rootfs/etc/modules.d/*
+        mv phicomm-n1-wireless/* mknop/armbian/n1/rootfs/etc/modules.d/
+        rm -rf mknop/openwrt/*
+        find openwrt/bin/targets/ -name "*rootfs*tar*gz*" | xargs -i mv -f {} mknop/openwrt/
+        mv mk.sh mknop/mk.sh        
+        cd mknop && chmod +x mk.sh
+        ./mk.sh
+        tar -czvf out/n1.tar.gz out/*.img
+        rm -rf ../artifact/
+        mkdir -p ../artifact/
+#        find openwrt/bin/targets/ -name "*combined*vmdk*" | xargs -i mv -f {} ./artifact/
+#        find openwrt/bin/targets/ -name "*combined*img*" | xargs -i mv -f {} ./artifact/
+#        find openwrt/bin/targets/ -name "*sysupgrade*bin*" | xargs -i mv -f {} ./artifact/
+#        find openwrt/bin/targets/ -name "*rootfs*tar*gz*" | xargs -i mv -f {} ./artifact/
+#        find openwrt/bin/targets/ -name "sha256sums" | xargs -i mv -f {} ./artifact/
+        find openwrt/bin/targets/ -name "config.seed" | xargs -i mv -f {} ../artifact/
+        find out/ -name "n1.tar.gz" | xargs -i mv -f {} ../artifact/
         echo "::set-output name=status::success"
 
     - name: Upload firmware directory
