@@ -97,6 +97,7 @@ svn checkout https://github.com/stamilo/luci-app-fullconenat/trunk package/lean/
 sed -i 's/NAT类型-Full cone NAT/NAT类型/g' package/lean/luci-app-fullconenat/po/zh-cn/fullconenat.po
 svn checkout https://github.com/LGA1150/openwrt-fullconenat/trunk package/lean/openwrt-fullconenat
 svn checkout https://github.com/Leo-Jo-My/luci-app-ssr-plus-jo/trunk package/lean/luci-app-ssr-plus-jo
+svn checkout https://github.com/Leo-Jo-My/luci-app-vssr-coexist/trunk package/lean/luci-app-vssr-coexist
 svn checkout https://github.com/Leo-Jo-My/my/trunk package/lean/my
 svn checkout https://github.com/pymumu/smartdns/trunk package/lean/smartdns
 svn checkout https://github.com/pymumu/luci-app-smartdns/trunk package/lean/luci-app-smartdns
@@ -109,6 +110,8 @@ rm -rf feeds/packages/libs/libuv/
 rm -rf package/libs/openssl/
 svn checkout https://github.com/openwrt/packages/trunk/libs/libuv feeds/packages/libs/libuv
 svn checkout https://github.com/openwrt/openwrt/trunk/package/libs/openssl package/libs/openssl
+sed -i 's/1.33.0/1.33.1/g' feeds/packages/net/aria2/Makefile
+sed -i 's/996e3fc2fd07ce2dd517e20a1f79b8b3dbaa5c7e27953b5fc19dae38f3874b8c/skip/g' feeds/packages/net/aria2/Makefile
 rm -rf feeds/luci/applications/luci-app-aria2/
 svn checkout https://github.com/kuoruan/openwrt-feeds/trunk/luci-app-aria2 feeds/luci/applications/luci-app-aria2
 sed -i 's/services/nas/g' feeds/luci/applications/luci-app-aria2/luasrc/controller/aria2.lua
@@ -118,7 +121,7 @@ rm -rf feeds/packages/net/ariang/
 svn checkout https://github.com/openwrt/packages/trunk/net/ariang feeds/packages/net/ariang
 svn checkout https://github.com/jerrykuku/luci-app-vssr/trunk package/lean/luci-app-vssr
 svn checkout https://github.com/jerrykuku/lua-maxminddb/trunk package/lean/lua-maxminddb
-svn checkout https://github.com/openwrt/packages/trunk/libs/libmaxminddb feeds/packages/libs/libmaxminddb
+svn checkout https://github.com/openwrt/packages/trunk/libs/libmaxminddb package/lean/libmaxminddb
 svn checkout https://github.com/openwrt/packages/trunk/utils/zstd package/lean/zstd
 svn checkout https://github.com/lllrrr/frpmod/trunk package/lean/frpmod
 cp ../target.mk include/
