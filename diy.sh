@@ -57,6 +57,7 @@ svn checkout https://github.com/coolsnowwolf/lede/trunk/package/lean/luci-app-qb
 svn checkout https://github.com/coolsnowwolf/lede/trunk/package/lean/baidupcs-web package/lean/baidupcs-web
 svn checkout https://github.com/coolsnowwolf/lede/trunk/package/lean/luci-app-baidupcs-web package/lean/luci-app-baidupcs-web
 svn checkout https://github.com/coolsnowwolf/lede/trunk/package/lean/luci-app-zerotier package/lean/luci-app-zerotier
+svn checkout https://github.com/coolsnowwolf/lede/trunk/package/lean/luci-lib-fs package/lean/luci-lib-fs
 svn checkout https://github.com/Lienol/openwrt-package/trunk/lienol package/lienol/lienol
 svn checkout https://github.com/Lienol/openwrt-package/trunk/others package/lienol/others
 svn checkout https://github.com/Lienol/openwrt-package/trunk/package package/lienol/package
@@ -98,7 +99,7 @@ sed -i 's/NAT类型-Full cone NAT/NAT类型/g' package/lean/luci-app-fullconenat
 svn checkout https://github.com/LGA1150/openwrt-fullconenat/trunk package/lean/openwrt-fullconenat
 svn checkout https://github.com/Leo-Jo-My/luci-app-ssr-plus-jo/trunk package/lean/luci-app-ssr-plus-jo
 svn checkout https://github.com/Leo-Jo-My/luci-app-vssr-coexist/trunk package/lean/luci-app-vssr-coexist
-svn checkout https://github.com/Leo-Jo-My/my/trunk package/lean/my
+#svn checkout https://github.com/Leo-Jo-My/my/trunk package/lean/my
 svn checkout https://github.com/pymumu/smartdns/trunk package/lean/smartdns
 svn checkout https://github.com/pymumu/luci-app-smartdns/trunk package/lean/luci-app-smartdns
 svn checkout https://github.com/lisaac/luci-app-diskman/trunk package/lean/luci-app-diskman
