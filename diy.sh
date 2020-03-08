@@ -108,7 +108,7 @@ svn checkout https://github.com/pymumu/luci-app-smartdns/trunk package/lean/luci
 svn checkout https://github.com/lisaac/luci-app-diskman/trunk package/lean/luci-app-diskman
 mkdir package/lean/parted
 mv package/lean/luci-app-diskman/Parted.Makefile package/lean/parted/Makefile
-sed -i 's/DiskMan //g' package/lean/luci-app-diskman/po/zh-cn/diskman.po
+sed -i 's/DiskMan 磁盘管理/磁盘管理/g' package/lean/luci-app-diskman/po/zh-cn/diskman.po
 svn checkout https://github.com/rufengsuixing/luci-app-syncdial/trunk package/lean/luci-app-syncdial
 rm -rf feeds/packages/libs/libuv/
 rm -rf package/libs/openssl/
@@ -130,5 +130,5 @@ svn checkout https://github.com/openwrt/packages/trunk/utils/zstd package/lean/z
 svn checkout https://github.com/lllrrr/frpmod/trunk package/lean/frpmod
 cp ../target.mk include/
 cp ../zzz-default-settings package/lean/default-settings/files/
-sed -i "s/8.3.19.0410/8.7.$(date "+%y.%m%d.%H")/g" package/lean/default-settings/files/zzz-default-settings
-sed -i "s/8.3.19.0410/8.7.$(date "+%y.%m%d.%H")/g" files/etc/banner
+sed -i "s/8.3.19.0410/8.$(date "+%y.%m%d.%H")/g" package/lean/default-settings/files/zzz-default-settings
+sed -i "s/8.3.19.0410/8.$(date "+%y.%m%d.%H")/g" files/etc/banner

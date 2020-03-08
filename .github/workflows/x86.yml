@@ -23,7 +23,7 @@ on:
 
 env:
   REPO_URL: https://github.com/openwrt/openwrt
-  REPO_BRANCH: v18.06.7
+  REPO_BRANCH: openwrt-18.06
   CONFIG_FILE: x86.config
   DIY_SH: diy.sh
   SSH_ACTIONS: false
