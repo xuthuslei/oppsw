@@ -6,7 +6,7 @@
 # Blog: https://p3terx.com
 #=================================================
 
-name: N1 OpenWrt
+name: N1 OpenWrt 18
 
 on:
   release:
@@ -125,5 +125,5 @@ jobs:
       uses: actions/upload-artifact@master
       if: steps.organize.outputs.status == 'success' && !cancelled()
       with:
-        name: OpenWrt_N1
+        name: OpenWrt_N1_18
         path: ./artifact/

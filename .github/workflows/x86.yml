@@ -6,7 +6,7 @@
 # Blog: https://p3terx.com
 #=================================================
 
-name: X86 Openwrt
+name: X86 Openwrt 18
 
 on:
   release:
@@ -14,12 +14,12 @@ on:
   push:
     branches:
       - master
-    paths:
-      - 'x86.config'
-  schedule:
-    - cron: 0 22 */6 * *
-  watch:
-    types: started
+#    paths:
+#      - 'x86.config'
+#  schedule:
+#    - cron: 0 22 */6 * *
+#  watch:
+#    types: started
 
 env:
   REPO_URL: https://github.com/openwrt/openwrt
@@ -115,5 +115,5 @@ jobs:
       uses: actions/upload-artifact@master
       if: steps.organize.outputs.status == 'success' && !cancelled()
       with:
-        name: OpenWrt_X86
+        name: OpenWrt_X86_18
         path: ./artifact/
