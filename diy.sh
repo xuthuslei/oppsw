@@ -28,8 +28,8 @@ svn checkout https://github.com/coolsnowwolf/lede/trunk/package/lean/adbyby pack
 svn checkout https://github.com/coolsnowwolf/lede/trunk/package/lean/luci-app-adbyby-plus package/lean/luci-app-adbyby-plus
 svn checkout https://github.com/coolsnowwolf/lede/trunk/package/lean/luci-app-autoreboot package/lean/luci-app-autoreboot
 svn checkout https://github.com/coolsnowwolf/lede/trunk/package/lean/luci-app-flowoffload package/lean/luci-app-flowoffload
-svn checkout https://github.com/coolsnowwolf/lede/trunk/package/lean/frp package/lean/frpc
-sed -i 's/0.31.1/0.31.2/g' package/lean/frp/Makefile
+svn checkout https://github.com/coolsnowwolf/lede/trunk/package/lean/frp package/lean/frp
+sed -i 's/0.31.2/0.32.0/g' package/lean/frp/Makefile
 svn checkout https://github.com/coolsnowwolf/lede/trunk/package/lean/luci-app-frpc package/lean/luci-app-frpc
 svn checkout https://github.com/coolsnowwolf/lede/trunk/package/lean/luci-app-frps package/lean/luci-app-frps
 svn checkout https://github.com/coolsnowwolf/lede/trunk/package/lean/luci-app-mwan3helper package/lean/luci-app-mwan3helper
@@ -61,6 +61,10 @@ svn checkout https://github.com/coolsnowwolf/lede/trunk/package/lean/luci-app-ze
 svn checkout https://github.com/coolsnowwolf/lede/trunk/package/lean/luci-lib-fs package/lean/luci-lib-fs
 svn checkout https://github.com/coolsnowwolf/lede/trunk/package/lean/microsocks package/lean/microsocks
 svn checkout https://github.com/coolsnowwolf/lede/trunk/package/lean/redsocks2 package/lean/redsocks2
+svn checkout https://github.com/coolsnowwolf/lede/trunk/package/lean/luci-app-unblockmusic package/lean/luci-app-unblockmusic
+svn checkout https://github.com/coolsnowwolf/lede/trunk/package/lean/UnblockNeteaseMusic package/lean/UnblockNeteaseMusic
+svn checkout https://github.com/coolsnowwolf/lede/trunk/package/lean/UnblockNeteaseMusicGo package/lean/UnblockNeteaseMusicGo
+sed -i 's/解锁网易云灰色歌曲/解锁网易云/g' package/lean/luci-app-unblockmusic/po/zh-cn/unblockmusic.po
 svn checkout https://github.com/Lienol/openwrt-package/trunk package/lienol
 #svn checkout https://github.com/Lienol/openwrt-package/trunk/others package/lienol/others
 #svn checkout https://github.com/Lienol/openwrt-package/trunk/package package/lienol/package
@@ -82,12 +86,12 @@ svn checkout https://github.com/rosywrt/luci-theme-rosy/trunk/luci-theme-rosy pa
 #svn checkout https://github.com/kuoruan/openwrt-kcptun/trunk package/lean/openwrt-kcptun
 #svn checkout https://github.com/kuoruan/luci-app-kcptun/trunk package/lean/luci-app-kcptun
 #svn checkout https://github.com/maxlicheng/luci-app-unblockmusic/trunk package/lean/luci-app-unblockmusic
-svn checkout https://github.com/project-openwrt/luci-app-unblockneteasemusic/trunk package/lean/luci-app-unblockneteasemusic
-sed -i 's/解除网易云音乐播放限制/解锁网易云/g' package/lean/luci-app-unblockneteasemusic/luasrc/controller/unblockneteasemusic.lua
+#svn checkout https://github.com/project-openwrt/luci-app-unblockneteasemusic/trunk package/lean/luci-app-unblockneteasemusic
+#sed -i 's/解除网易云音乐播放限制/解锁网易云/g' package/lean/luci-app-unblockneteasemusic/luasrc/controller/unblockneteasemusic.lua
 #svn checkout https://github.com/project-openwrt/luci-app-unblockneteasemusic-go/trunk package/lean/luci-app-unblockneteasemusic-go
 #sed -i 's/解除网易云音乐播放限制/解锁网易云/g' package/lean/luci-app-unblockneteasemusic-go/luci-app-unblockneteasemusic-go/luasrc/controller/unblockneteasemusic-go.lua
-svn checkout https://github.com/project-openwrt/luci-app-unblockneteasemusic-mini/trunk package/lean/luci-app-unblockneteasemusic-mini
-sed -i 's/解除网易云音乐播放限制/解锁网易云/g' package/lean/luci-app-unblockneteasemusic-mini/luasrc/controller/unblockneteasemusic-mini.lua
+#svn checkout https://github.com/project-openwrt/luci-app-unblockneteasemusic-mini/trunk package/lean/luci-app-unblockneteasemusic-mini
+#sed -i 's/解除网易云音乐播放限制/解锁网易云/g' package/lean/luci-app-unblockneteasemusic-mini/luasrc/controller/unblockneteasemusic-mini.lua
 #svn checkout https://github.com/frainzy1477/clash/trunk package/lean/clash
 #svn checkout https://github.com/frainzy1477/luci-app-clash/trunk package/lean/luci-app-clash
 svn checkout https://github.com/vernesong/OpenClash/trunk package/lean/OpenClash
@@ -113,8 +117,14 @@ sed -i 's/DiskMan 磁盘管理/磁盘管理/g' package/lean/luci-app-diskman/po/
 svn checkout https://github.com/rufengsuixing/luci-app-syncdial/trunk package/lean/luci-app-syncdial
 rm -rf feeds/packages/libs/libuv/
 rm -rf package/libs/openssl/
+rm -rf feeds/packages/lang/golang/
 svn checkout https://github.com/openwrt/packages/trunk/libs/libuv feeds/packages/libs/libuv
 svn checkout https://github.com/openwrt/openwrt/trunk/package/libs/openssl package/libs/openssl
+svn checkout https://github.com/openwrt/packages/trunk/lang/golang feeds/packages/lang/golang
+sed -i 's/+golang-src/+golang-src +libpthread/g' feeds/packages/lang/golang/golang/Makefile
+svn checkout https://github.com/coolsnowwolf/lede/trunk/tools/ucl tools/ucl
+svn checkout https://github.com/coolsnowwolf/lede/trunk/tools/upx tools/upx
+cp ../Makefile tools/
 sed -i 's/1.33.0/1.33.1/g' feeds/packages/net/aria2/Makefile
 sed -i 's/996e3fc2fd07ce2dd517e20a1f79b8b3dbaa5c7e27953b5fc19dae38f3874b8c/skip/g' feeds/packages/net/aria2/Makefile
 rm -rf feeds/luci/applications/luci-app-aria2/
