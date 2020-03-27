@@ -22,8 +22,8 @@ on:
     types: started
 
 env:
-  REPO_URL: https://github.com/openwrt/openwrt
-  REPO_BRANCH: openwrt-18.06
+  REPO_URL: https://github.com/coolsnowwolf/lede.git
+  REPO_BRANCH: master
   CONFIG_FILE: n1.config
   DIY_SH: diy.sh
   SSH_ACTIONS: false
@@ -62,7 +62,7 @@ jobs:
       run: git clone --depth 1 https://github.com/maxlicheng/phicomm-n1-wireless -b master phicomm-n1-wireless
 
     - name: Update feeds
-      run: cd openwrt && ./scripts/feeds update -a
+      run: cd openwrt &&  echo "src-git lienol https://github.com/Lienol/openwrt-package" >> feeds.conf.default && ./scripts/feeds update -a
 
     - name: Install feeds
       run: cd openwrt && ./scripts/feeds install -a
